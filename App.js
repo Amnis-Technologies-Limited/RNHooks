@@ -30,9 +30,6 @@ const App = () => {
     setEff('Watcher Clicked')
   }
 
-  // create variable
-  // let basit = 1
-  // basit = basit++
 
   return (
     <ScrollView style={styles.container}>
