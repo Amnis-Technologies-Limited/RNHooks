@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 
 const App = () => {
 
   const [basit, setBasit] = useState(1)
   const [eff, setEff] = useState('')
+
+  const inputRef = useRef();
 
   useEffect(() => {
     console.log('Basit is getting amended')
@@ -30,12 +32,18 @@ const App = () => {
     setEff('Watcher Clicked')
   }
 
+  const focusInput = () => {
+    inputRef.current.clear()
+  }
+
 
   return (
     <ScrollView style={styles.container}>
       <View style={{ paddingHorizontal: 20, marginTop: 50 }}>
         <Text>The value of Basit now is: {basit}</Text>
         <Text>Watcher now is: {eff}</Text>
+
+        <TextInput ref={inputRef} style={styles.textInput} />
       </View>
 
       <View style={styles.btnView}>
@@ -54,6 +62,13 @@ const App = () => {
         <TouchableOpacity onPress={() => handleWatcher()}>
           <View style={styles.btn}>
             <Text style={styles.btnText}>TestingEffect</Text>
+          </View>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity onPress={() => focusInput()}>
+          <View style={styles.btn}>
+            <Text style={styles.btnText}>TextInput Ref</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -88,5 +103,13 @@ const styles = StyleSheet.create({
   btnView: {
     width: '100%',
     paddingHorizontal: 20
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#efefdd',
+    paddingLeft: 8,
+    paddingVertical: 8,
+    marginTop: 20,
+    borderRadius: 4
   }
 });
