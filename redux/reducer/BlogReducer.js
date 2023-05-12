@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const allPosts = createAsyncThunk("allPosts", async () => {
     const result = await get("posts");
-    console.log('All posts: ', result)
+    console.log('All posts: ', JSON.stringify(result))
     return result
 })
 
@@ -21,7 +21,7 @@ const blogReducer = createSlice({
         })
         builder.addCase(allPosts.fulfilled, (state, action) => {
             state.loading = false;
-            state.blogs = action?.payload?.data
+            state.blogs = action?.payload
         })
         builder.addCase(allPosts.rejected, (state, action) => {
             state.loading = false;
