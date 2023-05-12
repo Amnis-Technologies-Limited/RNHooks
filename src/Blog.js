@@ -99,5 +99,5 @@ const styles = StyleSheet.create({
     },
     idSub: {
         color: '#706C6C'
-    }
+    },
 })
