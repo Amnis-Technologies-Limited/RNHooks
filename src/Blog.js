@@ -49,9 +49,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 35,
-        paddingHorizontal: 16
+        paddingHorizontal: 16,
+        backgroundColor: '#DCE9ED'
     },
     constainer: {
-
+         borderWidth: 1,
+        //  marginVertical: 
     }
 })
